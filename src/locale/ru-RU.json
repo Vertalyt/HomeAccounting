@@ -1,0 +1,140 @@
+{
+  "profile-title": "Профиль",
+  "refresh": "Обновить",
+  "name": "Имя",
+  "localeSite": "Язык сайта",
+
+  "account": "Счет",
+  "AccountCurrency": "Счет в валюте",
+  "Currency": "Валюта",
+  "Course": "Курс",
+  "ExchangeRate": "Курс валют",
+  "Date": "Дата",
+
+  "HistoryNotes": "История записей",
+  "RecordsNotFound": "Записей пока нет",
+  "Back": "Назад",
+  "Next": "Вперед",
+  "amount": "Сумма",
+  "categorуName": "Категория",
+  "Type": "Тип",
+  "Open": "Открыть",
+  "SpendingTransactionsYet": "Расходных операций пока нет.",
+
+
+  "OnlyNumbers": "Для ввода допускаются только цифри",
+  "AmountCannotBeLower": "Сумма не может быть ниже  ",
+  "AmountRequired.": "Сумма обязательна.",
+
+
+
+  "categoriesNotFound": "Категорий пока нет.",
+  "AddPepper": "Добавить первую.",
+  "menuPlanning": "Планирование",
+
+  "Menu_record": "Новая запись",
+  "ChooseCategory": "Выберите категорию",
+  "income": "Доход",
+  "costs": "Расходы",
+  "description": "Описание",
+  "Create": "Создать",
+  "recordsNotFound": "Ни одной записи не найдено",
+
+  "categories": "Категории",
+  "NameRecord": "Название",
+  "limit": "Лимит",
+  "EnterCategoryName": "Введите название категории",
+  "EnterLimit": "Введите предел",
+  "LimitCannotBeLess": "Лимит не может быть меньше",
+  "Edit": "Редактировать",
+  "AddNewCategory": "Добавить новую категорию",
+  "NewNameCategory": "Новое название",
+  "add": "Добавить первую",
+  "IdNotFound": "Данный ID не найден",
+  "Hide": "Сховати",
+  "Restore": "Відновити",
+
+
+  "Menu_bill": "Счет",
+  "Menu_history": "История",
+  "Menu_categories": "Категории",
+  "planning": "Планирование",
+
+  "HomeAccounting": "Домашняя бухгалтерия",
+  "Email": "Эмаил",
+  "Password": "Пароль",
+  "Enter": "Войти",
+  "NoAccount": "Нет учетной записи?",
+  "SignUp": "Зарегистрироваться",
+  "EnterEmail": "Введите email",
+  "MustBeValidEmail": "Здесь должен быть валидный email",
+  "EnterPassword": "Введите пароль",
+  "EnterName": "Введите логин",
+  "PasswordCannotBeSmaller": "Пароль не может быть меньше",
+  "Symbols": "символов",
+  "addLoginPass": "Добавить",
+
+
+  "AgreeRules": "С правилами согласен",
+  "AlreadyHaveAnAccount": "Уже есть аккаунт?",
+
+  "CreatedRecord": "Создать запись",
+  "MarvelRecord": "Посмотреть запись",
+  "GoOut": "Выйти",
+
+  "DataUpdated": "Данные успешно обновлены",
+  "EntryAddedSuccessfully": "Запись успешно добавлена",
+  "CategoryAddedSuccessfully": "Категория успешно оновлена",
+  "RegistrationCompleted": "Регистрация прошла успешно. Авторизируйтесь",
+  "AuthorizationSuccessful": "Авторизация успешна",
+
+  "Successfully": "Успешно!",
+  "Error": "Ошибка!",
+  "Attention": "Внимание!",
+
+    "logout": "Выход прошел успешно",
+    "auth/user-not-found": "Пользователь с этим адресом электронной почты не найден",
+    "auth/wrong-password": "Неправильный пароль",
+    "auth": "Пожалуйста, войдите",
+    "PERMISSION_DENIED": "Доступ запрещен",
+    "auth/email-already-in-use": "Пользователь с этим адресом электронной почты уже занят",
+    "NotKnownError": "Не извесная ошибка",
+    "NotMoney": "Недостаточно денег на счете",
+    "auth/requires-recent-login": "Для аутентификации требуется недавний вход. Войдите снова",
+    "auth/provider-already-linked": "авторизация поставщик уже связан",
+
+    "CreateCard": "Создать карту",
+    "CardName": "Название карты",
+    "Balance": "Баланс",
+    "CardNotFound": "Не добавлено ни одной карты.",
+    "SelectAYear": "Выберите год.",
+    "Total": "Всего",
+    "Debits": "Дебетовая",
+    "Credits": "Кредитная",
+    "Сash": "Наличка",
+    "WriteOffCard": "Карта списання",
+    "ChooseCardType": "Выберите тип",
+    "EditCard": "Редактировать карту",
+    "CardAdded": "Карта добавлена",
+    "CardIsUpdated": "Оновлена",
+    "AccountBillWasUpdated": "Счет обновлен на начало месяца",
+    "ChooseCardName": "Выберите название карты ",
+
+    "January": "январь",
+    "February": "февраль",
+    "March": "март",
+    "April": "апрель",
+    "May": "май",
+    "June": "июнь",
+    "July": "июль",
+    "August": "август",
+    "September": "сентябрь",
+    "October": "октябрь",
+    "November": "ноябрь",
+    "December": "декабрь",
+
+
+    "AddLoginPassword": "Добавить вход по логину и паролю"
+
+
+}
