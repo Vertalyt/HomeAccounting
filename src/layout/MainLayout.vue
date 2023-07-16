@@ -55,15 +55,12 @@ export default {
     onMounted(async () => {
       await store.dispatch("requests/clientInfo");
       const list = await store.dispatch("card/list");
-
-      if (list.length) {
+      if (list) {
         const hasMatch = await useHasMatchRecord()
       if (!hasMatch) {
         store.dispatch('card/updateListBill', list)
       }
       }
-
-
       loading.value = false;
     });
 

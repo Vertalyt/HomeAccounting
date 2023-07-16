@@ -124,13 +124,22 @@ export default {
       const auth = getAuth();
       return auth.currentUser.providerData
     },
-    redirectResult() {
+    async redirectResult({dispatch}) {
       const router = useRouter()
       const auth = getAuth();
-      getRedirectResult(auth)
-        .then((result) => {
+
+       getRedirectResult(auth)
+        .then(async (result) => {
           if(result) {
             console.log('success');
+            const db = getDatabase();
+            const uid = await dispatch("auth/getUid", null, { root: true });
+            const userLang = navigator.language || navigator.userLanguage;
+            await set(ref(db, "users/" + uid + "/info"), {
+              name: auth.currentUser.displayName,
+              role: "User",
+              locale: userLang,
+            });
             router.push('/')
           }
       })
