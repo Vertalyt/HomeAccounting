@@ -47,8 +47,8 @@
 
 
       <p class="center" v-if="loginCheck">
-      Забыл пароль? 
-      <RouterLink to="/reset"> Восстановить</RouterLink>
+        {{ getLocalizedText("ForgotPassword") }}
+      <RouterLink to="/reset">{{ getLocalizedText("Restore") }}</RouterLink>
       </p>
       <p class="center" v-if="loginCheck">
         {{ getLocalizedText("NoAccount") }}

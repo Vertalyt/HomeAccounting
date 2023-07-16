@@ -76,11 +76,10 @@ export default {
         bill: Number(props.infoProfile.bill),
         debit: Number(props.infoProfile.debit),
         credit: Number(props.infoProfile.credit),
-        name: val.name,
+        name: val.nameProfile,
         role: props.infoProfile.role,
         locale: locale.value
       }
-
       await state.dispatch("requests/updateInfo", update);
     });
 

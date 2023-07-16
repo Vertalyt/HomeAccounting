@@ -2,7 +2,7 @@
   <form class="card auth-card" @submit.prevent="onSubmit">
     <div class="card-content">
 
-        <span class="card-title">Відновити пароль</span>
+        <span class="card-title">{{ getLocalizedText('RestorePass') }}</span>
       <div class="input-field">
         <input
           id="email"

@@ -13,7 +13,7 @@ export function historyLogic() {
   const page = ref(1);
   const router = useRouter();
   const route = useRoute();
-  const pageSize = 3;
+  const pageSize = 5;
   const pageCount = ref(0);
   const items = ref([]);
   const ollRecord = ref([]);

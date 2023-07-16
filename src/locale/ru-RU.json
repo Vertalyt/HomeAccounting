@@ -3,6 +3,14 @@
   "refresh": "Обновить",
   "name": "Имя",
   "localeSite": "Язык сайта",
+  "ActivatedAuthorizationMethods": "Активированые методы авторизации",
+  "AddendumMethod": "Добавить дополнительный метод",
+  "AddGoogle": "Привязать Google",
+  "Account": "Аккаунт",
+  "TurnOff": "Отключить",
+  "LoginPass": "Логин/пароль",
+
+
 
   "account": "Счет",
   "AccountCurrency": "Счет в валюте",
@@ -11,7 +19,7 @@
   "ExchangeRate": "Курс валют",
   "Date": "Дата",
 
-  "HistoryNotes": "История записей",
+  "HistoryNotes": "Расходные записи",
   "RecordsNotFound": "Записей пока нет",
   "Back": "Назад",
   "Next": "Вперед",
@@ -41,6 +49,7 @@
   "recordsNotFound": "Ни одной записи не найдено",
 
   "categories": "Категории",
+  "CreateCategory": "Создать категорию",
   "NameRecord": "Название",
   "limit": "Лимит",
   "EnterCategoryName": "Введите название категории",
@@ -52,8 +61,12 @@
   "add": "Добавить первую",
   "IdNotFound": "Данный ID не найден",
   "Hide": "Сховати",
-  "Restore": "Відновити",
-
+  "Restore": "Обновить",
+  "RestoreCard": "Восстановить карту",
+  "RestorePass": "Обновить пароль",
+  "AccountLinkingSuccess": "Аккаунты успешно связаны",
+  "MethodSuccessfullyUnbound": "Метод успешно отвязан",
+  "PassReset": "Ссылка для сброса пароля успешно отправлена на почту",
 
   "Menu_bill": "Счет",
   "Menu_history": "История",
@@ -73,6 +86,8 @@
   "PasswordCannotBeSmaller": "Пароль не может быть меньше",
   "Symbols": "символов",
   "addLoginPass": "Добавить",
+  "ForgotPassword": "Забыл пароль?",
+
 
 
   "AgreeRules": "С правилами согласен",
@@ -108,6 +123,7 @@
     "Balance": "Баланс",
     "CardNotFound": "Не добавлено ни одной карты.",
     "SelectAYear": "Выберите год.",
+    "SelectAMonth": "Выберите месяц",
     "Total": "Всего",
     "Debits": "Дебетовая",
     "Credits": "Кредитная",
@@ -119,6 +135,7 @@
     "CardIsUpdated": "Оновлена",
     "AccountBillWasUpdated": "Счет обновлен на начало месяца",
     "ChooseCardName": "Выберите название карты ",
+
 
     "January": "январь",
     "February": "февраль",
@@ -134,7 +151,8 @@
     "December": "декабрь",
 
 
-    "AddLoginPassword": "Добавить вход по логину и паролю"
-
+    "AddLoginPassword": "Добавить вход по логину и паролю",
+    "NoElementsToEdit":"Отсутсвуют елементы для редактирования",
+    "NoElementsToRestor":"Отсутсвуют елементы для восстановления"
 
 }

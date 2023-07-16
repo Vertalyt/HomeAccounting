@@ -3,6 +3,11 @@
   "refresh": "Оновити",
   "name": "Ім'я",
   "localeSite": "Мова сайту",
+  "ActivatedAuthorizationMethods": "Активовані методи авторизації",
+  "AddendumMethod": "Додати додатковий метод",
+  "AddGoogle": "Прив'язати Google",
+  "TurnOff": "Відключити",
+  "LoginPass": "Логін/пароль",
 
   "account": "Рахунок",
   "AccountCurrency": "Рахунок у валюті",
@@ -25,7 +30,6 @@
   "SpendingTransactionsYet": "Витратних записів поки немає.",
 
 
-
   "categoriesNotFound": "Категорій поки що немає.",
   "AddPepper": "Додати першу.",
   "menuPlanning": "Планування",
@@ -39,6 +43,7 @@
   "recordsNotFound": "Жодного запису немає",
 
   "categories": "Категорії",
+  "CreateCategory": "Створити категорію",
   "NameRecord": "Назва",
   "limit": "Ліміт",
   "EnterCategoryName": "Введіть назву категорії",
@@ -49,7 +54,12 @@
   "NewNameCategory": "Нова назва",
   "Hide": "Сховати",
   "Restore": "Відновити",
-
+  "RestoreCard": "Відновити карту",
+  "RestorePass": "Відновити пароль",
+  "Account": "Аккаунт",
+  "AccountLinkingSuccess": "Аккаунти успішно пов'язані",
+  "MethodSuccessfullyUnbound": "Метод успішно відвязаний",
+  "PassReset": "Посилання для скидання пароля успішно надіслано на пошту",
 
   "IdNotFound": "Данний ID не знайдено",
   "Menu_bill": "Рахунок",
@@ -72,6 +82,7 @@
   "PasswordCannotBeSmaller": "Пароль не може бути меншим",
   "Symbols": "символів",
   "addLoginPass": "Додати",
+  "ForgotPassword": "Забули пароль?",
 
 
   "AgreeRules": "З правилами згоден",
@@ -107,6 +118,7 @@
     "Balance": "Баланс",
     "CardNotFound": "Не додано жодної карти.",
     "SelectAYear": "Виберіть рік",
+    "SelectAMonth": "Виберіть місяць",
     "Total": "Всього",
     "Debits": "Дебетова",
     "Credits": "Кредитна",
@@ -134,6 +146,7 @@
     "November": "листопад",
     "December": "грудень",
 
-    "AddLoginPassword": "Додати вхід по логіну та паролю"
-
+    "AddLoginPassword": "Додати вхід по логіну та паролю",
+    "NoElementsToEdit":"Відсутні елементи для редагування",
+    "NoElementsToRestor":"Відсутні елементи для відновлення"
 }

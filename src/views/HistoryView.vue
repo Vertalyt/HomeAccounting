@@ -20,6 +20,7 @@
         required
         @change.prevent="onYearChange"
       >
+      <option value=""  disabled selected>{{ getLocalizedText("SelectAYear") }}</option>
         <option :value="yearData.year" v-for="yearData in transformedYears" :key="yearData.year">
           {{ yearData.year }}
         </option>

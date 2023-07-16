@@ -2,9 +2,9 @@
 <table class="striped highlight centered teal lighten-4" ref="cardTableRef">
         <thead v-if="loginMetod">
           <tr>
-              <th> Тип  </th>
-              <th>Аккаунт</th>
-              <th v-if="loginMetod.length > 1">Відключити</th>
+              <th>{{ getLocalizedText('Type') }}</th>
+              <th>{{ getLocalizedText('Account') }}</th>
+              <th v-if="loginMetod.length > 1">{{ getLocalizedText('TurnOff') }}</th>
           </tr>
         </thead>
         <tbody>
@@ -23,6 +23,8 @@
 
 <script>
 import { useStore } from 'vuex'
+import { getLocalizedText } from '../locale'
+
 export default {
   name: 'ActiveMethodAuth',
   props:['loginMetod'],
@@ -36,12 +38,13 @@ export default {
 
     const authTitle = {
       "google.com": 'Google',
-      "password": 'Логін/пароль',
+      "password": getLocalizedText('LoginPass'),
     }
 
     return {
       unlinkAuth,
-      authTitle
+      authTitle,
+      getLocalizedText
     }
   },
 }

@@ -42,7 +42,7 @@ export function loginPasswordForm(props, emit) {
       try {
         await store.dispatch(props.dispatchOnSubmitLogin, { email: val.email, password: val.password});
         emit('updated')
-        if(props.registerCheck) {
+        if(props.loginCheck) {
           router.push('/')
         }
 

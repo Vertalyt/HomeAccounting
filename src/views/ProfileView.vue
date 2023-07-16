@@ -3,38 +3,42 @@
     <div class="page-title">
       <h3>{{ getLocalizedText("profile-title") }}</h3>
     </div>
-
-    <section>
+    <AppLoading  v-if="loading"/>
+    <section v-else>
       <ul class="collapsible" ref="collapsibleRef">
     <li>
-      <div class="collapsible-header"><i class="material-icons">account_circle</i>Профіль</div>
+      <div class="collapsible-header"><i class="material-icons">account_circle</i>{{ getLocalizedText('profile-title') }}</div>
       <div class="collapsible-body"><ProfileInfo :infoProfile="infoProfile"/></div>
     </li>
     <li >
-      <div class="collapsible-header"><i class="material-icons">login</i>Активовані методи авторизації</div>
+      <div class="collapsible-header"><i class="material-icons">login</i>{{ getLocalizedText('ActivatedAuthorizationMethods') }}</div>
       <div class="collapsible-body"> <ActiveMethodAuth  :key="updateKeyAuth" :loginMetod="loginMetod" @updated="updateAuth" />
       </div></li>
 
     <li v-if="!passwordMetod || !googleMethod">
-      <div class="collapsible-header"><i class="material-icons">rule_folder</i>Додати додатковий метод</div>
+      <div class="collapsible-header"><i class="material-icons">rule_folder</i>{{ getLocalizedText('AddendumMethod') }}</div>
       <div class="collapsible-body"> 
         <LoginPasswordForm :key="updateKeyAuth" v-if="!passwordMetod" @updated="updateAuth" :dispatchOnSubmitLogin="dispatchOnSubmitLogin" :ButtonLogin="ButtonLogin" :titleLogin="titleLogin"/>     
         <form action="" @click.prevent ="googleAuth" v-if="!googleMethod" >
-          <button class="btn">Прив'язати Google</button>
+          <button class="btn">{{ getLocalizedText('AddGoogle') }}</button>
         </form>
       </div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">credit_card</i>Створити карту</div>
+      <div class="collapsible-header"><i class="material-icons">credit_card</i>{{ getLocalizedText('CreateCard') }}</div>
       <div class="collapsible-body"><CardCreate :key="updateKey" @created="update"/></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">redeem</i>Редагувати карту</div>
-      <div class="collapsible-body"><ElementEdit :key="updateKey"  @updated="update" :dispash="dispatchOnSubmitElement"/></div>
+      <div class="collapsible-header"><i class="material-icons">redeem</i>{{ getLocalizedText('EditCard') }}</div>
+      <div class="collapsible-body">
+        <p v-if="!cardListEdit.length">{{ getLocalizedText('NoElementsToEdit') }}</p>
+        <ElementEdit :key="updateKey"  @updated="update" :dispash="dispatchOnSubmitElement"/></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">credit_score</i>Відновити карту</div>
-      <div class="collapsible-body"><ElementRestor :key="updateKey" :dispash="dispatchOnSubmitElement" @updated="update"/></div>
+      <div class="collapsible-header"><i class="material-icons">credit_score</i>{{ getLocalizedText('RestoreCard') }}</div>
+      <div class="collapsible-body">
+        <p v-if="!cardListRestore.length">{{ getLocalizedText('NoElementsToRestor') }}</p>
+      <ElementRestor :key="updateKey" :dispash="dispatchOnSubmitElement" @updated="update"/></div>
     </li>
   </ul>
   </section>
@@ -49,6 +53,7 @@ import ElementEdit from "../components/ElementEdit.vue";
 import LoginPasswordForm from "../components/LoginPasswordForm.vue";
 import CardCreate from "../components/CardCreate.vue";
 import ActiveMethodAuth from "../components/ActiveMethodAuth.vue";
+import AppLoading from '../components/app/AppLoading.vue'
 import { useStore } from "vuex";
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { getLocalizedText } from '../locale'
@@ -71,23 +76,44 @@ export default {
     const instances  = ref()
     const updateCountAyth = ref(0)
     const googleMethod = ref()
+    const loading = ref(true)
+    const cardListRestore = ref([])
+    const cardListEdit = ref([])
 
-    const update = async () => {
+ 
+
+    async function mainParametrs () {
+      loginMetod.value = await store.dispatch('auth/verificationMethods') 
+      passwordMetod.value = loginMetod.value.find(r => r.providerId === 'password')
+      googleMethod.value = loginMetod.value.find(r => r.providerId === 'google.com')
+      }
+
+      async function mainParametrsCard () {    
+      const cardList = await store.getters['card/list']
+      if (cardList.length) {
+        cardListEdit.value = cardList.filter(c => c.isDetected === false)
+        cardListRestore.value = cardList.filter(c => c.isDetected === true)
+      }
+      }
+
+      const update = async () => {
+      await mainParametrsCard()
       updateCount.value++;
     };
 
     const updateAuth = async () => {
-      loginMetod.value = await store.dispatch('auth/verificationMethods') 
-      passwordMetod.value = loginMetod.value.find(r => r.providerId === 'password')
-      googleMethod.value = loginMetod.value.find(r => r.providerId === 'google.com')
+      await mainParametrs()
       updateCountAyth.value++;
     }
 
     onMounted( async ()=> {
-        loginMetod.value = await store.dispatch('auth/verificationMethods')
-        passwordMetod.value = loginMetod.value.find(r => r.providerId === 'password')
-        googleMethod.value = loginMetod.value.find(r => r.providerId === 'google.com')
-        instances.value = M.Collapsible.init(collapsibleRef.value);
+        loading.value = true
+        await mainParametrs()
+        await mainParametrsCard()
+          setTimeout(() => {
+            instances.value = M.Collapsible.init(collapsibleRef.value);
+          }, 0);
+        loading.value = false
     })
 
     onBeforeUnmount(() => {
@@ -116,7 +142,10 @@ export default {
       collapsibleRef,
       updateAuth,
       googleAuth,
-      googleMethod
+      googleMethod,
+      cardListEdit,
+      loading,
+      cardListRestore
     }
   },
   components: {
@@ -125,7 +154,8 @@ export default {
     ElementRestor,
     ElementEdit,
     LoginPasswordForm,
-    ActiveMethodAuth
+    ActiveMethodAuth,
+    AppLoading
   }
 };
 </script>

@@ -20,13 +20,14 @@ export default {
     addlist(state, payload) {
       state.list.push(payload);
     },
-    update(state, { title, limit, idParrent }) {
+    update(state, { title, limit, idParrent, isDetected }) {
       state.list = state.list.map(c => {
         if(c.idParrent === idParrent ) {
           return {
            ...c,
            title,
-           limit
+           limit,
+           isDetected
           }
         }
         return c
@@ -44,6 +45,7 @@ export default {
           limit,
           isDetected
         });
+
         commit("addlist", { title, limit, idParrent: newCategoryKey, isDetected });
         dispatch('setMessage', {
             type: 'primary',

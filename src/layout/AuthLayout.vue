@@ -2,15 +2,13 @@
 <template>
 <div>
 <div class="grey darken-1 empty-layout">
-  <!-- <AppMessage /> -->
   <RouterView />
 </div>
 </div>
 </template>
 
 <script>
-// import AppMessage from "../components/app/AppMessage.vue";
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import { error } from '../utills/error' 
 
@@ -19,19 +17,17 @@ export default {
   setup() {
     const route = useRoute()
     const store = useStore()
+    const router = useRouter()
 
     if(route.query.message === 'auth') {
       store.dispatch('setMessage', {
-        type: 'warning',
         value: error('auth')
       })
+      router.push('/login')
     }
     return {
     }
   },
-  components: {
-    // AppMessage
-  }
 }
 </script>
 

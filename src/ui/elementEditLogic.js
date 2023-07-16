@@ -40,6 +40,7 @@ export function elementEditLogic(props, {emit}) {
 
 
     onMounted(async () => {
+      
       isDetectedData.value  = await store.dispatch(`${props.dispash}/list`);     
       if(isDetectedData.value.length) {
         selectData.value = isDetectedData.value.filter(c => c.isDetected === false)

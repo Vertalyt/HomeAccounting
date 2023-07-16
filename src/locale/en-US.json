@@ -3,6 +3,13 @@
   "refresh": "Refresh",
   "name": "Name",
   "localeSite": "Site language",
+  "ActivatedAuthorizationMethods": "Activated authorization methods",
+  "AddendumMethod": "Add an addendum method",
+  "AddGoogle": "Pin Google",
+  "Account": "Account",
+  "TurnOff": "Turn off",
+  "LoginPass": "Login/Pass",
+
 
   "account": "Account",
   "AccountCurrency": "Account Currency",
@@ -11,10 +18,11 @@
   "ExchangeRate": "Exchange Rate",
   "Date": "Date",
 
-  "HistoryNotes": "History Notes",
+  "HistoryNotes": "Expense records",
   "RecordsNotFound": "No records yet",
   "Back": "Back",
   "Next": "Forward",
+  "categorуName": "Categorу name",
   "amount": "Amount",
   "categoryName": "Category",
   "Type": "Type",
@@ -40,6 +48,7 @@
   "recordsNotFound": "No record found",
 
   "categories": "Categories",
+  "CreateCategory": "Create category",
   "NameRecord": "Name",
   "limit": "Limit",
   "EnterCategoryName": "Enter Category Name",
@@ -48,8 +57,14 @@
   "Edit": "Edit",
   "AddNewCategory": "Add new category",
   "NewNameCategory": "New Name",
-  "Hide": "Сховати",
-  "Restore": "Відновити",
+  "Hide": "Hide",
+  "Restore": "Restore",
+  "RestoreCard": "Restore card",
+  "RestorePass": "Restore password",
+  "AccountLinkingSuccess": "Account linking success",
+  "MethodSuccessfullyUnbound": "The method was successfully unbound",
+  "PassReset": "Password reset link successfully emailed",
+
 
   "IdNotFound": "This ID was not found",
 
@@ -72,6 +87,7 @@
   "PasswordCannotBeSmaller": "Password cannot be smaller",
   "Symbols": "symbols",
   "addLoginPass": "Add",
+  "ForgotPassword": "Forgot password?",
 
 
   "AgreeRules": "I agree with the rules",
@@ -86,6 +102,7 @@
   "CategoryAddedSuccessfully": "Category updated successfully",
   "RegistrationCompleted": "Registration was successful. Log in",
   "AuthorizationSuccessful": "Authorization successful",
+
   "Successfully": "Successfully!",
   "Error": "Error!",
   "Attention": "Attention!",
@@ -106,6 +123,7 @@
   "Balance": "Balanse",
   "CardNotFound": "Card not found.",
   "SelectAYear": "Select a year",
+  "SelectAMonth": "Select a month",
   "Total": "Total",
   "Debits": "Debits",
   "Credits": "Credits",
@@ -132,6 +150,8 @@
   "November": "november",
   "December": "december",
 
-  "AddLoginPassword": "Add login by login and password"
+  "AddLoginPassword": "Add login by login and password",
+"NoElementsToEdit":"There are no elements to edit",
+"NoElementsToRestor":"There are no elements to restor"
 
 }

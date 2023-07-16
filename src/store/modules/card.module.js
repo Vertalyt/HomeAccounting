@@ -125,10 +125,10 @@ export default {
         });
 
        await update(ref(db, "users/" + uid + "/card"), transformedObject);
-        dispatch('setMessage', {
-            type: 'primary',
-            value: getLocalizedText('AccountBillWasUpdated'),
-          }, { root: true })
+        // dispatch('setMessage', {
+        //     type: 'primary',
+        //     value: getLocalizedText('AccountBillWasUpdated'),
+        //   }, { root: true })
 
       } catch (error) {
         console.log(error);

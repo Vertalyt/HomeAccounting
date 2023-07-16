@@ -102,9 +102,4 @@ export default {
   border: 2px solid #c77e7e;
   background-color: #c77e7e;
 }
-/* .col {
-  border: 1px solid rgb(218, 218, 218);
-    border-radius: 10px;
-    margin-bottom: 1rem;
-} */
 </style>

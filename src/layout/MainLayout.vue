@@ -7,7 +7,6 @@
 
     <main class="app-content" :class="{ full: !isOpen }">
       <div class="app-page">
-        <!-- <AppMessage /> -->
         <RouterView />
       </div>
     </main>

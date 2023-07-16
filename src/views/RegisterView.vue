@@ -47,12 +47,12 @@
         }}</small>
       </div>
 
-      <p>
+      <!-- <p>
         <label>
           <input type="checkbox" required />
           <span>{{ getLocalizedText("AgreeRules") }}</span>
         </label>
-      </p>
+      </p> -->
     </div>
     <div class="card-action">
       <div>

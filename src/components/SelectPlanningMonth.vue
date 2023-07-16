@@ -7,7 +7,7 @@
         required
         @change.prevent="$emit('onChange')"
       >
-
+        <option value=""  disabled selected>{{ getLocalizedText("SelectAMonth") }}</option>
         <option :value="m" v-for="m in transformedDataMonth" :key="m">
           {{ nameMounth[m].name }}
         </option>

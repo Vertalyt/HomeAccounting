@@ -29,14 +29,12 @@ export default {
         const userLang = navigator.language || navigator.userLanguage;
         await set(ref(db, "users/" + uid + "/info"), {
           name,
-          bill: 100,
           role: "User",
           locale: userLang,
         });
         dispatch(
           "setMessage",
           {
-            type: "primary",
             value: getLocalizedText("RegistrationCompleted"),
           },
           { root: true }
@@ -60,7 +58,6 @@ export default {
         dispatch(
           "setMessage",
           {
-            type: "primary",
             value: getLocalizedText("AuthorizationSuccessful"),
           },
           { root: true }
@@ -102,19 +99,16 @@ export default {
           await linkWithRedirect(auth.currentUser, provider)
             .then(/* ... */)
             .catch(/* ... */);
-
-
     },
     async addLoginPass({ dispatch }, payload) {
       const credential = EmailAuthProvider.credential(payload.email, payload.password);
       const auth = getAuth();
       await linkWithCredential(auth.currentUser, credential)
             .then(() => {
-            console.log("Account linking success");
             dispatch("setMessage",
             {
               type: "warning",
-              value: 'Account linking success',},
+              value: getLocalizedText("AccountLinkingSuccess"),},
             { root: true }
           );
             }).catch((e) => {
@@ -167,7 +161,7 @@ export default {
         dispatch("setMessage",
           {
             type: "primary",
-            value: 'Метод успішно відвязаний',
+            value: getLocalizedText("MethodSuccessfullyUnbound"),
           },
           { root: true }
         );
@@ -183,7 +177,7 @@ export default {
              dispatch("setMessage",
              {
                type: "primary",
-               value: 'Ссылка для сброса пароля успешно отправлена на почту',
+               value: getLocalizedText("PassReset"),
              },
              { root: true }
            );
@@ -191,7 +185,8 @@ export default {
            .catch(function(error) {
              const errorCode = error.code;
              const errorMessage = error.message;
-             console.error('Ошибка при отправке письма:', errorCode, errorMessage)
+             console.error(errorCode)
+             console.error(errorMessage)
            });
       } catch (error) {
         console.log(error);

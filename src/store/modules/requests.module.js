@@ -67,7 +67,6 @@ export default {
         dispatch(
           "setMessage",
           {
-            type: "primary",
             value: getLocalizedText("DataUpdated"),
           },
           { root: true }

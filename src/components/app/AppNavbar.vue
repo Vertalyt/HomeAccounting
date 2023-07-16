@@ -71,7 +71,6 @@ export default {
       router.push('/login?message=logout')
 
       store.dispatch('setMessage', {
-        type: 'primary',
         value: error('logout')
       })
     }

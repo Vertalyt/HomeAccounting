@@ -18,7 +18,11 @@
     </div>
 
     <div class="row">
-      <HomeBill :curses="curses" v-if="billCards"/>
+      <p v-if="!billCards.length" class="center"><strong>{{ getLocalizedText('CardNotFound') }} 
+        <RouterLink to="/profile">{{ getLocalizedText('AddPepper') }}</RouterLink>
+        </strong></p>
+
+      <HomeBill :curses="curses" v-if="billCards.length"/>
       <HomeCurrency :curses="curses" v-if="curses"/>
     </div>
   </div>
