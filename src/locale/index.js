@@ -1,4 +1,4 @@
-import store from "@/store";
+import store from "../store";
 import ru from './ru-RU.json'
 import ua from './uk-UA.json'
 import en from './en-US.json'
@@ -16,11 +16,6 @@ const locales = {
 }
 
 export function getLocalizedText(key) {
-
-    const userLang = navigator.language || navigator.userLanguage; 
-
-
-    const locale = store.getters["requests/clientInfo"].locale || userLang || 'uk-UA'
-
+    const locale = store.getters["requests/clientInfo"].locale || 'uk-UA'
     return locales[locale][key] || `[Localize error]: key ${key} not found`
 }

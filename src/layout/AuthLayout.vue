@@ -19,6 +19,7 @@ export default {
     const store = useStore()
     const router = useRouter()
 
+
     if(route.query.message === 'auth') {
       store.dispatch('setMessage', {
         value: error('auth')

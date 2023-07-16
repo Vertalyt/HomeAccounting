@@ -3,9 +3,10 @@ import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 import { useStore } from "vuex";
 import { useRouter } from 'vue-router'
-import { getLocalizedText } from '@/locale'
+import { getLocalizedText } from '../locale'
 
 export function loginPasswordForm(props, emit) {
+
     const router = useRouter()
     const store = useStore();
     const MIN_LENGHT_PASS = 6;

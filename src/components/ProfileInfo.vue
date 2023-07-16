@@ -73,9 +73,6 @@ export default {
 
     const onSubmit = handleSubmit(async (val) => {
       const update = {
-        bill: Number(props.infoProfile.bill),
-        debit: Number(props.infoProfile.debit),
-        credit: Number(props.infoProfile.credit),
         name: val.nameProfile,
         role: props.infoProfile.role,
         locale: locale.value
