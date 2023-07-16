@@ -8,7 +8,9 @@ import {
   getRedirectResult,
   EmailAuthProvider,
   linkWithCredential,
-  unlink
+  unlink,
+  linkWithRedirect,
+  sendPasswordResetEmail
 } from "firebase/auth";
 import { getDatabase, set, ref } from "firebase/database";
 import { error } from "../../utills/error";
@@ -94,12 +96,20 @@ export default {
       const auth = getAuth();
       await signInWithRedirect(auth, provider);
     },
+    async googleAddAuth() {
+      const provider = new GoogleAuthProvider();
+      const auth = getAuth();
+          await linkWithRedirect(auth.currentUser, provider)
+            .then(/* ... */)
+            .catch(/* ... */);
+
+
+    },
     async addLoginPass({ dispatch }, payload) {
       const credential = EmailAuthProvider.credential(payload.email, payload.password);
       const auth = getAuth();
       await linkWithCredential(auth.currentUser, credential)
-            .then((usercred) => {
-            const user = usercred.user;
+            .then(() => {
             console.log("Account linking success");
             dispatch("setMessage",
             {
@@ -126,12 +136,7 @@ export default {
       getRedirectResult(auth)
         .then((result) => {
           if(result) {
-            // const credential = GoogleAuthProvider.credentialFromResult(result);
-            // console.log('credential', credential);
-            // const token = credential.accessToken;
-            // console.log('token', token);
-            // const user = result.user;
-            // console.log('user', user);
+            console.log('success');
             router.push('/')
           }
       })
@@ -169,6 +174,29 @@ export default {
       }).catch((error) => {
           console.log(error);
       });
+    },
+    async resetPassword({dispatch}, {email}) {
+      try {
+        const auth = getAuth();
+        await sendPasswordResetEmail(auth, email)
+           .then(function() {
+             dispatch("setMessage",
+             {
+               type: "primary",
+               value: 'Ссылка для сброса пароля успешно отправлена на почту',
+             },
+             { root: true }
+           );
+           })
+           .catch(function(error) {
+             const errorCode = error.code;
+             const errorMessage = error.message;
+             console.error('Ошибка при отправке письма:', errorCode, errorMessage)
+           });
+      } catch (error) {
+        console.log(error);
+      }
+
     }
   },
 };

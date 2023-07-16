@@ -1,5 +1,5 @@
 <template>
-  <LoginPasswordForm  :dispatchOnSubmitLogin="dispatchOnSubmitLogin" :registerCheck="registerCheck" :titleLogin="titleLogin" :ButtonLogin="ButtonLogin"/>
+  <LoginPasswordForm  :dispatchOnSubmitLogin="dispatchOnSubmitLogin" :loginCheck="loginCheck" :titleLogin="titleLogin" :ButtonLogin="ButtonLogin"/>
 
   <form @submit.prevent="GoogleAuth">
   <button type="submit" class="btn">Войти через гугл</button>
@@ -19,7 +19,7 @@ export default {
   setup() {
     const store = useStore();
     const dispatchOnSubmitLogin = 'auth/login'
-    const registerCheck = true
+    const loginCheck = true
     const titleLogin = 'HomeAccounting'
     const ButtonLogin = 'Enter'
 
@@ -41,7 +41,7 @@ export default {
       getLocalizedText,
       GoogleAuth,
       dispatchOnSubmitLogin,
-      registerCheck,
+      loginCheck,
       titleLogin,
       ButtonLogin
     };

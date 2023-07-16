@@ -36,7 +36,7 @@
 <script>
 
 import { getLocalizedText } from '@/locale'
-// import { useStore } from "vuex";
+import { useStore } from "vuex";
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 import { useRouter } from 'vue-router'
@@ -44,7 +44,7 @@ import { useRouter } from 'vue-router'
 export default {
   name: "ResetView.vue",
   setup() {
-    // const store = useStore();
+    const store = useStore();
     const router = useRouter()
     const { isSubmitting, handleSubmit } = useForm();
     const {
@@ -62,8 +62,7 @@ export default {
 
     const onSubmit = handleSubmit(async (val, { resetForm }) => {
       try {
-        console.log(val);
-        // await store.dispatch('', { email: val.email});
+        await store.dispatch('auth/resetPassword', { email: val.email});
           router.push('/login')
         resetForm();
       } catch (error) {

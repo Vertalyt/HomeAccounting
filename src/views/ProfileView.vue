@@ -12,13 +12,17 @@
     </li>
     <li >
       <div class="collapsible-header"><i class="material-icons">login</i>Активовані методи авторизації</div>
-      <div class="collapsible-body"> <ActiveMethodAuth  :key="updateKeyAuth" :loginMetod="loginMetod" @updated="updateAuth" /></div></li>
+      <div class="collapsible-body"> <ActiveMethodAuth  :key="updateKeyAuth" :loginMetod="loginMetod" @updated="updateAuth" />
+      </div></li>
 
-    <li v-if="!passwordMetod">
-      <div class="collapsible-header"><i class="material-icons">alternate_email</i>Додати вхід по емаіл</div>
+    <li v-if="!passwordMetod || !googleMethod">
+      <div class="collapsible-header"><i class="material-icons">rule_folder</i>Додати додатковий метод</div>
       <div class="collapsible-body"> 
         <LoginPasswordForm :key="updateKeyAuth" v-if="!passwordMetod" @updated="updateAuth" :dispatchOnSubmitLogin="dispatchOnSubmitLogin" :ButtonLogin="ButtonLogin" :titleLogin="titleLogin"/>     
-    </div>
+        <form action="" @click.prevent ="googleAuth" v-if="!googleMethod" >
+          <button class="btn">Прив'язати Google</button>
+        </form>
+      </div>
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">credit_card</i>Створити карту</div>
@@ -50,6 +54,7 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { getLocalizedText } from '../locale'
 import M from "materialize-css/dist/js/materialize.min.js";
 
+
 export default {
   name: "ProfileView",
   setup() {
@@ -65,6 +70,7 @@ export default {
     const collapsibleRef = ref()
     const instances  = ref()
     const updateCountAyth = ref(0)
+    const googleMethod = ref()
 
     const update = async () => {
       updateCount.value++;
@@ -73,12 +79,14 @@ export default {
     const updateAuth = async () => {
       loginMetod.value = await store.dispatch('auth/verificationMethods') 
       passwordMetod.value = loginMetod.value.find(r => r.providerId === 'password')
+      googleMethod.value = loginMetod.value.find(r => r.providerId === 'google.com')
       updateCountAyth.value++;
     }
 
     onMounted( async ()=> {
         loginMetod.value = await store.dispatch('auth/verificationMethods')
         passwordMetod.value = loginMetod.value.find(r => r.providerId === 'password')
+        googleMethod.value = loginMetod.value.find(r => r.providerId === 'google.com')
         instances.value = M.Collapsible.init(collapsibleRef.value);
     })
 
@@ -87,6 +95,10 @@ export default {
         instances.value.destroy();
     }
     } )
+
+    const googleAuth = async() => {
+    await store.dispatch('auth/googleAddAuth')
+    }
 
     return {
       getLocalizedText,
@@ -102,7 +114,9 @@ export default {
       passwordMetod,
       loginMetod,
       collapsibleRef,
-      updateAuth
+      updateAuth,
+      googleAuth,
+      googleMethod
     }
   },
   components: {

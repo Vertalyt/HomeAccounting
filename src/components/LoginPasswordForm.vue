@@ -46,10 +46,16 @@
       </div>
 
 
-      <p class="center" v-if="registerCheck">
+      <p class="center" v-if="loginCheck">
+      Забыл пароль? 
+      <RouterLink to="/reset"> Восстановить</RouterLink>
+      </p>
+      <p class="center" v-if="loginCheck">
         {{ getLocalizedText("NoAccount") }}
         <RouterLink to="/register"> {{ getLocalizedText("SignUp") }}</RouterLink>
       </p>
+
+
     </div>
   </form>
   
@@ -66,7 +72,7 @@ export default {
       type: String,
       requared: true
     },
-    registerCheck: {
+    loginCheck: {
       type: Boolean,
       requared: false
     },

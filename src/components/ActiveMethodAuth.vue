@@ -1,23 +1,21 @@
 <template>
 <table class="striped highlight centered teal lighten-4" ref="cardTableRef">
-        <thead>
+        <thead v-if="loginMetod">
           <tr>
               <th> Тип  </th>
               <th>Аккаунт</th>
-              <th>Відключити</th>
-
+              <th v-if="loginMetod.length > 1">Відключити</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="m in loginMetod" :key="m.providerId">
             <td>{{ authTitle[m.providerId] }}</td>
             <td>{{ m.email }}</td>
-            <td>
+            <td v-if="loginMetod.length > 1">
             <a href="#" class="btn-small btn" @click.prevent="unlinkAuth(m.providerId)">
               <i class="material-icons">open_in_new</i>
             </a>
-
-        </td>
+          </td>
           </tr>
         </tbody>
       </table>
@@ -25,12 +23,11 @@
 
 <script>
 import { useStore } from 'vuex'
-
 export default {
   name: 'ActiveMethodAuth',
   props:['loginMetod'],
   emits:['updated'],
-  setup(_, {emit}) {
+  setup(props, {emit}) {
     const store = useStore()
     const unlinkAuth = async (providerId) => {
      await store.dispatch('auth/unMethodAuth', providerId)
