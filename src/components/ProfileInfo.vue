@@ -4,7 +4,8 @@
 
     <form @submit.prevent="onSubmit">
       <div class="card-content">
-      <div class="input-field">
+
+      <!-- <div class="input-field">
         <input
           id="nameProfile"
           type="text"
@@ -16,7 +17,7 @@
         <span class="helper-text" :class="{ invalid: nError }">{{
           nError
         }}</span>
-      </div>
+      </div> -->
 
       <div class="input-field" id="locale">
       <select ref="selectCategory" v-model="locale">
@@ -43,8 +44,7 @@
 
 <script>
 import { useStore } from "vuex";
-import { useField, useForm } from "vee-validate";
-import * as yup from "yup";
+import { useForm } from "vee-validate";
 import { onMounted, onBeforeUnmount, ref } from "vue";
 import M from "materialize-css/dist/js/materialize.min.js";
 import { localeFlag, getLocalizedText } from '../locale'
@@ -60,20 +60,11 @@ export default {
     
 
     const { isSubmitting, handleSubmit } = useForm({
-      initialValues: {
-        nameProfile: props.infoProfile.name,
-      },
     });
 
-    const {
-      value: nValue,
-      errorMessage: nError,
-      handleBlur: nBlur,
-    } = useField("nameProfile", yup.string().trim().required("Введите имя"));
-
-    const onSubmit = handleSubmit(async (val) => {
+    const onSubmit = handleSubmit(async () => {
       const update = {
-        name: val.nameProfile,
+        name: props.infoProfile.name,
         role: props.infoProfile.role,
         locale: locale.value
       }
@@ -92,9 +83,6 @@ export default {
     });
 
     return {
-      nValue,
-      nError,
-      nBlur,
       isSubmitting,
       onSubmit,
       selectCategory,
